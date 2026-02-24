@@ -6,7 +6,10 @@ public class Matakuliah18 {
     public int sks;
     public int jumlahJam;
 
-    public Matakuliah18(String kode, String nama, int sks, int jumlahJam) {
+    public Matakuliah18() {
+    }
+
+    public void tambahData(String kode, String nama, int sks, int jumlahJam) {
         this.kode = kode;
         this.nama = nama;
         this.sks = sks;
