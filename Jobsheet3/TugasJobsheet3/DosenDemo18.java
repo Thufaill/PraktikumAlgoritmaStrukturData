@@ -10,7 +10,7 @@ public class DosenDemo18 {
 
         System.out.print("Masukkan jumlah dosen: ");
         int jumlah = sc.nextInt();
-        sc.nextLine(); 
+        sc.nextLine();
 
         Dosen18[] daftarDosen = new Dosen18[jumlah];
 
@@ -24,7 +24,7 @@ public class DosenDemo18 {
             System.out.print("Nama          : ");
             String nama = sc.nextLine();
 
-            System.out.print("Jenis Kelamin : ");
+            System.out.print("Jenis Kelamin (Pria/Wanita): ");
             String jkInput = sc.nextLine();
             Boolean jenisKelamin = jkInput.equalsIgnoreCase("Pria");
 
@@ -37,13 +37,15 @@ public class DosenDemo18 {
             daftarDosen[i] = new Dosen18(kode, nama, jenisKelamin, usia);
         }
 
-        System.out.println();
+        System.out.println("\n===== HASIL PENGOLAHAN DATA =====");
 
-        int no = 1;
-        for (Dosen18 dsn : daftarDosen) {
-            dsn.tampilData(no);
-            no++;
-        }
+        DataDosen18 data = new DataDosen18();
+
+        data.dataSemuaDosen(daftarDosen);
+        data.jumlahDosenPerJenisKelamin(daftarDosen);
+        data.rerataUsiaDosenPerJenisKelamin(daftarDosen);
+        data.infoDosenPalingTua(daftarDosen);
+        data.infoDosenPalingMuda(daftarDosen);
 
         sc.close();
     }

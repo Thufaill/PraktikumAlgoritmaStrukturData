@@ -14,10 +14,9 @@ public class Dosen18 {
         this.usia = usia;
     }
 
-    public void tampilData(int nomor) {
+    public void tampilData() {
         String jk = (jenisKelamin) ? "Pria" : "Wanita";
 
-        System.out.println("Data Dosen ke-" + nomor);
         System.out.println("Kode          : " + kode);
         System.out.println("Nama          : " + nama);
         System.out.println("Jenis Kelamin : " + jk);
