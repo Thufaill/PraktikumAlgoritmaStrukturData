@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Pemilihan {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { 
         Scanner input = new Scanner(System.in);
 
         System.out.println("Program Menghitung Nilai Akhir");
