@@ -6,11 +6,16 @@ public class MatakuliahDemo18 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Matakuliah18[] arrayOfMatakuliah = new Matakuliah18[3];
+
+        System.out.print("Masukkan jumlah Matakuliah: ");
+        int jumlah = Integer.parseInt(sc.nextLine());
+
+        Matakuliah18[] arrayOfMatakuliah = new Matakuliah18[jumlah];
+
         String kode, nama, dummy;
         int sks, jumlahJam;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < jumlah; i++) {
             arrayOfMatakuliah[i] = new Matakuliah18();
 
             System.out.println("Masukkan Data Matakuliah ke-" + (i + 1));
@@ -29,7 +34,7 @@ public class MatakuliahDemo18 {
             arrayOfMatakuliah[i].tambahData(kode, nama, sks, jumlahJam);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < jumlah; i++) {
             System.out.println("Data Matakuliah ke-" + (i + 1));
             arrayOfMatakuliah[i].cetakInfo();
         }
