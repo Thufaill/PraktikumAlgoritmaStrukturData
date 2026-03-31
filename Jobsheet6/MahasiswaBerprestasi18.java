@@ -1,16 +1,11 @@
 package Jobsheet6;
+import java.util.ArrayList;
 
 public class MahasiswaBerprestasi18 {
-    Mahasiswa18[] listMhs = new Mahasiswa18[5];
-    int idx;
+    ArrayList<Mahasiswa18> listMhs = new ArrayList<>();
 
     void tambah(Mahasiswa18 m) {
-        if (idx < listMhs.length) {
-            listMhs[idx] = m;
-            idx++;
-        } else {
-            System.out.println("data sudah penuh");
-        }
+        listMhs.add(m);
     }
 
     void tampil() {
@@ -21,12 +16,12 @@ public class MahasiswaBerprestasi18 {
     }
 
     void bubbleSort() {
-        for (int i = 0; i < listMhs.length - 1; i++) {
-            for (int j = 1; j < listMhs.length - i; j++) {
-                if (listMhs[j].ipk > listMhs[j - 1].ipk) {
-                    Mahasiswa18 tmp = listMhs[j];
-                    listMhs[j] = listMhs[j - 1];
-                    listMhs[j - 1] = tmp;
+        for (int i = 0; i < listMhs.size() - 1; i++) {
+            for (int j = 1; j < listMhs.size() - i; j++) {
+                if (listMhs.get(j).ipk > listMhs.get(j - 1).ipk) {
+                    Mahasiswa18 tmp = listMhs.get(j);
+                    listMhs.set(j, listMhs.get(j - 1));
+                    listMhs.set(j - 1, tmp);
                 }
             }
         }
