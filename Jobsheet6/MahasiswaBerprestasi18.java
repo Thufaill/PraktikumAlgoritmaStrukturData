@@ -1,11 +1,20 @@
 package Jobsheet6;
-import java.util.ArrayList;
 
 public class MahasiswaBerprestasi18 {
-    ArrayList<Mahasiswa18> listMhs = new ArrayList<>();
+    Mahasiswa18[] listMhs;
+    int idx;
+
+    MahasiswaBerprestasi18(int jumlah) {
+        listMhs = new Mahasiswa18[jumlah];
+    }
 
     void tambah(Mahasiswa18 m) {
-        listMhs.add(m);
+        if (idx < listMhs.length) {
+            listMhs[idx] = m;
+            idx++;
+        } else {
+            System.out.println("Data sudah penuh");
+        }
     }
 
     void tampil() {
@@ -16,14 +25,28 @@ public class MahasiswaBerprestasi18 {
     }
 
     void bubbleSort() {
-        for (int i = 0; i < listMhs.size() - 1; i++) {
-            for (int j = 1; j < listMhs.size() - i; j++) {
-                if (listMhs.get(j).ipk > listMhs.get(j - 1).ipk) {
-                    Mahasiswa18 tmp = listMhs.get(j);
-                    listMhs.set(j, listMhs.get(j - 1));
-                    listMhs.set(j - 1, tmp);
+        for (int i = 0; i < listMhs.length - 1; i++) {
+            for (int j = 1; j < listMhs.length - i; j++) {
+                if (listMhs[j].ipk > listMhs[j - 1].ipk) {
+                    Mahasiswa18 tmp = listMhs[j];
+                    listMhs[j] = listMhs[j - 1];
+                    listMhs[j - 1] = tmp;
                 }
             }
+        }
+    }
+
+    void selectionSort() {
+        for (int i = 0; i < listMhs.length - 1; i++) {
+            int idxMin = i;
+            for (int j = i + 1; j < listMhs.length; j++) {
+                if (listMhs[j].ipk < listMhs[idxMin].ipk) {
+                    idxMin = j;
+                }
+            }
+            Mahasiswa18 tmp = listMhs[idxMin];
+            listMhs[idxMin] = listMhs[i];
+            listMhs[i] = tmp;
         }
     }
 }

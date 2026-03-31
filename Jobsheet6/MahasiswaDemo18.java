@@ -4,11 +4,12 @@ import java.util.Scanner;
 public class MahasiswaDemo18 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        MahasiswaBerprestasi18 list = new MahasiswaBerprestasi18();
 
         System.out.print("Masukkan jumlah mahasiswa: ");
         int jumlah = sc.nextInt();
         sc.nextLine();
+
+        MahasiswaBerprestasi18 list = new MahasiswaBerprestasi18(jumlah);
 
         for (int i = 0; i < jumlah; i++) {
             System.out.println("\nData Mahasiswa ke-" + (i + 1));
@@ -35,7 +36,12 @@ public class MahasiswaDemo18 {
 
         list.bubbleSort();
 
-        System.out.println("Data mahasiswa setelah sorting (IPK DESC):");
+        System.out.println("\nData mahasiswa setelah sorting berdasarkan IPK (DESC):");
+        list.tampil();
+
+        System.out.println("======================================");
+        System.out.println("Data yang sudah terurut menggunakan SELECTION SORT (ASC)");
+        list.selectionSort();
         list.tampil();
 
         sc.close();
