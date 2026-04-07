@@ -27,6 +27,7 @@ public class MahasiswaDemo18 {
 
         list.tampil();
 
+        // Sequential Search
         System.out.println("--------------------------------------------");
         System.out.println("Pencarian data");
         System.out.println("--------------------------------------------");
@@ -34,10 +35,26 @@ public class MahasiswaDemo18 {
         System.out.print("IPK: ");
         double cari = sc.nextDouble();
 
-        System.out.println("menggunakan sequential searching");
+        System.out.println("--------------------------------------------");
+        System.out.println("menggunakan sequential search");
+        System.out.println("--------------------------------------------");
+
         int pss = list.sequentialSearching(cari);
         list.tampilPosisi(cari, pss);
         list.tampilDataSearch(cari, pss);
+
+        // Binary Search
+        System.out.println("--------------------------------------------");
+        System.out.println("Pencarian data");
+        System.out.println("--------------------------------------------");
+
+        System.out.println("--------------------------------------------");
+        System.out.println("menggunakan binary search");
+        System.out.println("--------------------------------------------");
+        int pss2 = list.findBinarySearch(cari, 0, jumMhs - 1);
+        list.bubbleSort();
+        list.tampilPosisi(cari, pss2);
+        list.tampilDataSearch(cari, pss2);
 
         sc.close();
     }
