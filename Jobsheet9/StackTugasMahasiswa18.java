@@ -72,7 +72,23 @@ public class StackTugasMahasiswa18 {
         }
     }
 
-    void lihatTugas(){
-        System.out.println("Total Tugas\t: " + (top+1));
+    void lihatTugas() {
+        System.out.println("Total Tugas\t: " + (top + 1));
+    }
+
+    public String konversiDesimalKeBiner(int nilai) {
+        StackKonversi18 stack = new StackKonversi18();
+        while (nilai > 0) {
+            int sisa = nilai % 2;
+            stack.push(sisa);
+            nilai = nilai / 2;
+        }
+
+        String biner = new String();
+        while (!stack.isEmpty()) {
+            biner += stack.pop();
+        }
+
+        return biner;
     }
 }
