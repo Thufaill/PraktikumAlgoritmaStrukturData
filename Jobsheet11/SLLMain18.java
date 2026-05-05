@@ -1,27 +1,71 @@
 package Jobsheet11;
 
+import java.util.Scanner;
+
 public class SLLMain18 {
     public static void main(String[] args) {
 
         SingleLinkedList18 sll = new SingleLinkedList18();
 
-        Mahasiswa18 mhs1 = new Mahasiswa18("001", "Andi", "TI-1A", 3.5);
-        Mahasiswa18 mhs2 = new Mahasiswa18("002", "Budi", "TI-1B", 3.7);
-        Mahasiswa18 mhs3 = new Mahasiswa18("003", "Dirga", "TI-1C", 3.8);
-        Mahasiswa18 mhs4 = new Mahasiswa18("004", "Citra", "TI-1D", 3.6);
+        Scanner sc = new Scanner(System.in);
 
-        sll.print();
+        boolean lanjut = true;
+        while (lanjut) {
+            System.out.println("Masukkan data mahasiswa:");
+            System.out.print("Nama: ");
+            String nama = sc.nextLine();
+            System.out.print("NIM: ");
+            String nim = sc.nextLine();
+            System.out.print("Kelas: ");
+            String kelas = sc.nextLine();
+            System.out.print("IPK: ");
+            double ipk = sc.nextDouble();
+            sc.nextLine();
 
-        sll.addFirst(mhs4);
-        sll.print();
+            Mahasiswa18 mhs = new Mahasiswa18(nama, nim, kelas, ipk);
 
-        sll.addLast(mhs1);
-        sll.print();
+            System.out.println("\nPilih operasi penambahan:");
+            System.out.println("1. Tambah di awal (addFirst)");
+            System.out.println("2. Tambah di akhir (addLast)");
+            System.out.println("3. Tambah di indeks tertentu (insertAt)");
+            System.out.println("4. Tambah setelah nama tertentu (insertAfter)");
+            System.out.print("Pilih: ");
+            int pilihan = sc.nextInt();
+            sc.nextLine();
 
-        sll.insertAfter("Dirga", mhs3);
-        sll.print();
+            switch (pilihan) {
+                case 1:
+                    sll.addFirst(mhs);
+                    break;
+                case 2:
+                    sll.addLast(mhs);
+                    break;
+                case 3:
+                    System.out.print("Masukkan indeks: ");
+                    int index = sc.nextInt();
+                    sc.nextLine();
+                    sll.insertAt(index, mhs);
+                    break;
+                case 4:
+                    System.out.print("Masukkan nama yang mendahului: ");
+                    String key = sc.nextLine();
+                    sll.insertAfter(key, mhs);
+                    break;
+                default:
+                    System.out.println("Pilihan tidak valid!");
+            }
 
-        sll.insertAt(2, mhs2);
-        sll.print();
+            sll.print();
+
+            System.out.print("\nApakah Anda ingin menambah data lagi? (y/n): ");
+            String jawab = sc.nextLine();
+            if (jawab.equalsIgnoreCase("n")) {
+                lanjut = false;
+            }
+        }
+
+        System.out.println("Program selesai.");
+
+        sc.close();
     }
 }
