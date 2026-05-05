@@ -1,71 +1,39 @@
 package Jobsheet11;
 
-import java.util.Scanner;
-
 public class SLLMain18 {
     public static void main(String[] args) {
 
         SingleLinkedList18 sll = new SingleLinkedList18();
 
-        Scanner sc = new Scanner(System.in);
+        Mahasiswa18 mhs1 = new Mahasiswa18("001", "Alvaro", "1A", 4.0);
+        Mahasiswa18 mhs2 = new Mahasiswa18("002", "Bimon", "2B", 3.8);
+        Mahasiswa18 mhs3 = new Mahasiswa18("003", "Cintia", "3C", 3.5);
+        Mahasiswa18 mhs4 = new Mahasiswa18("004", "Dirga", "4D", 3.6);
 
-        boolean lanjut = true;
-        while (lanjut) {
-            System.out.println("Masukkan data mahasiswa:");
-            System.out.print("Nama: ");
-            String nama = sc.nextLine();
-            System.out.print("NIM: ");
-            String nim = sc.nextLine();
-            System.out.print("Kelas: ");
-            String kelas = sc.nextLine();
-            System.out.print("IPK: ");
-            double ipk = sc.nextDouble();
-            sc.nextLine();
+        sll.print();
 
-            Mahasiswa18 mhs = new Mahasiswa18(nama, nim, kelas, ipk);
+        sll.addFirst(mhs4);
+        sll.print();
 
-            System.out.println("\nPilih operasi penambahan:");
-            System.out.println("1. Tambah di awal (addFirst)");
-            System.out.println("2. Tambah di akhir (addLast)");
-            System.out.println("3. Tambah di indeks tertentu (insertAt)");
-            System.out.println("4. Tambah setelah nama tertentu (insertAfter)");
-            System.out.print("Pilih: ");
-            int pilihan = sc.nextInt();
-            sc.nextLine();
+        sll.addLast(mhs1);
+        sll.print();
 
-            switch (pilihan) {
-                case 1:
-                    sll.addFirst(mhs);
-                    break;
-                case 2:
-                    sll.addLast(mhs);
-                    break;
-                case 3:
-                    System.out.print("Masukkan indeks: ");
-                    int index = sc.nextInt();
-                    sc.nextLine();
-                    sll.insertAt(index, mhs);
-                    break;
-                case 4:
-                    System.out.print("Masukkan nama yang mendahului: ");
-                    String key = sc.nextLine();
-                    sll.insertAfter(key, mhs);
-                    break;
-                default:
-                    System.out.println("Pilihan tidak valid!");
-            }
+        sll.insertAfter("Dirga", mhs3);
 
-            sll.print();
+        sll.insertAt(2, mhs2);
+        sll.print();
 
-            System.out.print("\nApakah Anda ingin menambah data lagi? (y/n): ");
-            String jawab = sc.nextLine();
-            if (jawab.equalsIgnoreCase("n")) {
-                lanjut = false;
-            }
-        }
+        System.out.println("Data index 1:");
+        sll.getData(1);
 
-        System.out.println("Program selesai.");
+        System.out.println("\nData mahasiswa an Bimon berada pada index : " + sll.indexOf("Bimon"));
+        System.out.println();
 
-        sc.close();
+        sll.removeFirst();
+        sll.removeLast();
+        sll.print();
+
+        sll.removeAt(0);
+        sll.print();
     }
 }
