@@ -95,35 +95,31 @@ public class DoubleLinkedList18 {
         }
     }
 
-    public void removeFirst() {
+        public void removeFirst() {
         if (isEmpty()) {
-            System.out.println("Linked List kosong.");
+            System.out.println("Linked List masih kosong, tidak ada yang dihapus.");
             return;
         }
-
+        System.out.println("Menghapus data awal: " + head.data.nama);
         if (head == tail) {
             head = tail = null;
         } else {
             head = head.next;
             head.prev = null;
         }
-
-        System.out.println("Data awal berhasil dihapus.");
     }
 
     public void removeLast() {
         if (isEmpty()) {
-            System.out.println("Linked List kosong.");
+            System.out.println("Linked List masih kosong, tidak ada yang dihapus.");
             return;
         }
-
+        System.out.println("Menghapus data akhir: " + tail.data.nama);
         if (head == tail) {
             head = tail = null;
         } else {
             tail = tail.prev;
             tail.next = null;
         }
-
-        System.out.println("Data akhir berhasil dihapus.");
     }
 }
