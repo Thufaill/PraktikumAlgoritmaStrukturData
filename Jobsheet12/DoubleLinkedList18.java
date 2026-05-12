@@ -79,4 +79,19 @@ public class DoubleLinkedList18 {
             current = current.next;
         }
     }
+
+    public void printReverse() {
+        if (isEmpty()) {
+            System.out.println("Linked List masih kosong.");
+            return;
+        }
+
+        System.out.println("Menampilkan data secara terbalik (Tail ke Head):");
+        Node18 current = tail;
+        while (current != null) {
+            current.data.tampil();
+            System.out.println("-----------------------");
+            current = current.prev;
+        }
+    }
 }
