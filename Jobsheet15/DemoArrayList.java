@@ -34,5 +34,8 @@ public class DemoArrayList {
         for (Customer cust : customers) {
             System.out.println(cust.toString());
         }
+
+        customers.sort((c1, c2) -> c1.name.compareTo(c2.name));
+        System.out.println(customers);
     }
 }
